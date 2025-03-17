@@ -29,6 +29,15 @@ table {
     margin-top: 20px;
 }
 
+/* Make the table scrollable */
+.table-container {
+    max-height: 600px; 
+    overflow-y: auto;  
+    overflow-x: auto;  
+    border: 1px solid #ddd;
+    display: block; 
+}
+
 th, td {
     padding: 10px;
     border: 1px solid #ddd;

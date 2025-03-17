@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPosts, fetchPostById, setSelectedPost } from './app/store';
+import { fetchPosts, fetchPostById } from './app/actions/postsActions';
+import { setSelectedPost } from './app/reducers/postReducer';
 import './styles.css'; 
- 
 
 // Display List of Posts
 const PostsList = () => {
@@ -18,26 +18,28 @@ const PostsList = () => {
     return (
         <div className="container">
             <h2>Posts</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>User ID</th>
-                        <th>Title</th>
-                        <th>View Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {posts.map(post => (
-                        <tr key={post.id}>
-                            <td><Link to={`/post/${post.id}`}>{post.id}</Link></td>
-                            <td>{post.userId}</td>
-                            <td>{post.title}</td>
-                            <td>{post.body}</td>
+            <div className="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User ID</th>
+                            <th>Title</th>
+                            <th>View Details</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {posts.map(post => (
+                            <tr key={post.id}>
+                                <td><Link to={`/post/${post.id}`}>{post.id}</Link></td>
+                                <td>{post.userId}</td>
+                                <td>{post.title}</td>
+                                <td>{post.body}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
