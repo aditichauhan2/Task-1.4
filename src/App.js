@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPosts, fetchPostById } from './app/actions/postsActions';
-import { setSelectedPost } from './app/reducers/postReducer';
+import { fetchPosts, fetchPostById } from './actions/postsActions';
+import { setSelectedPost } from './reducers/postReducer';
 import './styles.css'; 
 
 // Display List of Posts
